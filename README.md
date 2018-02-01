@@ -27,12 +27,17 @@ To copy a file to hadoop, enter ```hadoop fs -copyFromLocal <path to local file>
 Compile the java file. Note that you should have an output folder, in this case called "output":   
 ```javac -classpath $(hadoop classpath) -d output WordCount.java```
 
-Create jar file: ```jar -cvf wordcount.jar -C output/ .```
-Run: ```hadoop jar wc.jar WordCount <the file you put into hdfs> <the file you ```
-Kill: hadoop job -kill job_id
-Print out output: hadoop fs -cat dft-output/part-r-00000 | less
-Copy to local: hadoop fs -copyToLocal dft-output/part-r-00000
-Remove directory: hadoop dfs -rm -r dft-output
+Create jar file: ```jar -cvf wordcount.jar -C output/ .``` 
+
+Run: ```hadoop jar wc.jar WordCount <the file you put into hdfs> dft-output``` 
+
+Kill: ```hadoop job -kill job_id``` 
+
+Print out output: ```hadoop fs -cat dft-output/part-r-00000 | less``` 
+
+Copy to local: ```hadoop fs -copyToLocal dft-output/part-r-00000``` 
+
+Remove directory: ```hadoop dfs -rm -r dft-output``` 
 
 
 ### Using Spark
